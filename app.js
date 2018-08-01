@@ -2,8 +2,6 @@ const express = require('express');
 
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
-
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -12,9 +10,9 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('HI');
+    res.send('LISTENING ON PORT 3000');
 });
 
-app.listen(app.get('port'), () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('READY');
 });
