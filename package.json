@@ -1,23 +1,17 @@
 {
-  "name": "dotest",
+  "name": "node_boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/L1224rd/dotest.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/L1224rd/dotest/issues"
-  },
-  "homepage": "https://github.com/L1224rd/dotest#readme",
+  "author": "Eder Marques",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3"
   }
 }
