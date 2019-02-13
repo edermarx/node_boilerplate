@@ -10,7 +10,14 @@
 </head>
 
 <body>
-  <h1>Home</h1>
+  <h1><%= name %></h1>
+  <ul>
+    <% list.forEach((item, i) => { %>
+      <% if(showItem[i]) { %>
+        <li> <%= item %> </li>
+      <% } %>
+    <% }); %>
+  </ul>
 </body>
 <script src="/views/home/home.js"></script>
 </html>

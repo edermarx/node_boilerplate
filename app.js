@@ -19,6 +19,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// use ejs template tag engine
+app.set('view engine', 'ejs');
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -31,14 +34,18 @@ app.use('/views', express.static(path.join(__dirname, 'views')));
 // ==================== FUNCTIONS ==================== //
 
 // returns the full path of the passed view
-const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
+const getViewPath = view => path.join(__dirname, `views/${view}/${view}.ejs`);
 
 // ==================== ROUTES ==================== //
 
 // ==================== RENDER VIEWS ==================== //
 
 app.get('/', (req, res) => {
-    res.sendFile(getViewPath('home'));
+    res.render(getViewPath('home'), {
+      name: 'Hello',
+      list: ['item 0', 'item 1', 'item 2'],
+      showItem: [1, 0, 1],
+    });
 });
 
 // ==================== START SERVER ==================== //
