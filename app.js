@@ -3,6 +3,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
@@ -38,6 +39,7 @@ try {
   });
 } catch (err) {
   console.log('Erro ao tentar acessar banco de dados');
+  console.log(err);
 }
 
 // ==================== ROUTES ==================== //
