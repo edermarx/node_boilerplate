@@ -23,6 +23,23 @@ app.use('/views', express.static(path.join(__dirname, 'views')));
 // returns the full path of the passed view
 const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
+// ==================== DATABASE ==================== //
+
+try {
+  mongoose.connect(
+    process.env.MONGO_URI,
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
+  );
+
+  const { connection } = mongoose;
+
+  connection.once('open', () => {
+    console.log('Conexão com banco de dados realizada com sucesso');
+  });
+} catch (err) {
+  console.log('Erro ao tentar acessar banco de dados');
+}
+
 // ==================== ROUTES ==================== //
 
 // ==================== RENDER VIEWS ==================== //
